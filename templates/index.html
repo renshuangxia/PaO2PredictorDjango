@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Home page</title>
+  </head>
+  <body>
+    <h1 style="text-align: center;">PaO2 predictor</h1>
+    <form style="text-align: center;" action="{% url 'result' %}">
+    {% csrf_token %}
+
+      <p style="font-weight: bold">Choose a Model:
+          <select name="model" id="model">
+              <option value="linear_regression">Linear Regression</option>
+              <option value="svr">SVR</option>
+              <option value="Neural_Network">Neural Network</option>
+          </select>
+          <br>
+      </p>
+
+
+      <p style="font-weight: bold; text-indent:0px;"><input type="checkbox" name="cb_exclude_sample"> Model trained with SpO2 >= 96 samples excluded:
+      <br></p>
+
+      <p style="font-weight: bold; text-indent:50px;">SpO2 (0 ~ 100): <input type="text" name="spo2">
+      <br></p>
+
+      <p style="font-weight: bold; text-indent:45px;">FiO2 (0.0 ~ 1.0): <input type="text" name="fio2">
+      <br></p>
+
+
+      <p style="font-weight: bold; text-indent:43px;">PEEP (cmH₂O): <input type="text" name="peep">
+      <br></p>
+
+
+      <p style="font-weight: bold; text-indent:15px;">Tidal Volumne (ml): <input type="text" name="vt">
+      <br></p>
+
+
+      <p style="font-weight: bold; text-indent:110px;">MAP: <input type="text" name="map">
+      <br></p>
+
+
+      <p style="font-weight: bold; text-indent:0px;">Temperature (celsius): <input type="text" name="temp">
+      <br></p>
+
+
+      <p style="font-weight: bold; text-indent:60px;">vaso (1 or 0): <input type="text" name="vaso">
+      <br></p>
+
+      <p style="font-weight: bold; text-indent:0px;"><input type="checkbox" name="cb_feature_num"> Use Top 3 Features (SpO2, FiO2, PEEP)
+      <br></p>
+
+      <p style="text-indent:180px;"><input style="background-color: #4CAF50;font-weight: bold;font-size: 15px; border-radius: 4px;  color: white; padding: 10px 24px; " type="submit" value='Predict'>
+      </p>
+    </form>
+  </body>
+</html>
