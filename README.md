@@ -1,11 +1,28 @@
 # PaO2PredictorDjango
 Simple web page loads pretrained models for predicting PaO2 values
 
-**Build with versions:**
+##Environment set up:
+To set up the conda environment, use req.txt 
 
-django         3.2.7<br/>
-scikit-learn	 0.24.2<br/>
-numpy	         1.17.3<br/>
-keras          2.2.4<br/>
-tensorflow     1.14.0<br/>
-joblib         0.14.0<br/>
+##Examples of PaO2 Predition
+
+###3 Features:
+
+SpO2 = 95  , FiO2 = 0.5 ,  Peep = 5
+
+|                 |  Samples with SpO2 <= 96    |  All Samples |
+|:---------------:|:----------:|:------------:|
+|Linear Regression|   111.95   |    141.28    |
+|     SVR         |   93.44    |     95.5     |
+| Neural Network  |   110.48   |    112.29    |
+
+
+###7 Features:
+
+SpO2 = 95, FiO2 = 0.5, Peep = 10, Tidal Volumn = 850, MAP = 84, Temperature = 36.56, vaso = 0
+
+|                 |  Samples with SpO2 <= 96   |  All Samples |
+|:---------------:|:--------:|:------------:|
+|Linear Regression|  100.07  |    138.53   |
+|     SVR         |   86.79  |     85.12    |
+| Neural Network  |   93.93  |     101.6    |
